@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 
 using namespace std;
 
@@ -8,28 +9,40 @@ struct Node {
 };
 
 int main() {
-    //In every linked list must have a start
-    Node n1, n2, n3, n4, *start, *ptr;
-    int ctr;
+    Node *start, *ptr1, *ptr2;
+    int i, numOfNodes;
 
-    n1.value = 12;
-    n2.value = 22;
-    n3.value = 32;
-    n4.value = 42;
+    start = NULL;
+    cout << "Enter number of nodes: ";
+    cin >> numOfNodes;
 
-    start = &n1;
-    n1.next = &n2;
-    n2.next = &n3;
-    n3.next = &n4;
-    n4.next = NULL;
+    for (i = 1; i <= numOfNodes; i++) {
+        ptr1 = (Node *)malloc(sizeof(Node));
+        cout << "Enter the value for Node " << i << ": ";
+        cin >> ptr1->value;
+        ptr1->next = NULL;
 
-    ptr = &n1;
-    ctr = 1;
+        if (start == NULL) {
+            start = ptr1;
+            ptr2 = ptr1;
+        }
+        else {
+            ptr2->next = ptr1;
+            ptr2 = ptr2 -> next;
+        }
+    }
 
-    while (ptr != NULL) {
-        cout << "The value of NODE " << ctr << " is " << ptr->value << endl;
-        ++ctr;
-        ptr = ptr->next;
+    ptr1 = start;
+    if (ptr1 == NULL) {
+        cout << "The list is empty" << endl;
+    }
+    else {
+        i = 1;
+        while (ptr1 != NULL) {
+            cout << ptr1->value << endl;
+            ++i;
+            ptr1 = ptr1 -> next;
+        }
     }
 
 }
