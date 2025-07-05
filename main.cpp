@@ -10,7 +10,7 @@ struct Node {
 int main() {
     //In every linked list must have a start
     Node n1, n2, n3, n4, *start;
-    int *ptr;
+    Node *ptr;
 
 
     n1.value = 111;
@@ -24,8 +24,11 @@ int main() {
     n3.next = &n4;
     n4.next = NULL;
 
-    ptr = &start->value;
-    cout << *ptr << endl;
-    cout << *ptr << endl;
+    ptr = start;
+    cout << "====================================================================" << endl;
+    cout << "The value of the node is " << ptr -> value << endl;
+    cout << "The value of the next node is " << ptr -> next -> value << endl;
+    cout << "The next node is " << ptr -> next -> next -> value << endl;
+    cout << "====================================================================" << endl;
 
 }
