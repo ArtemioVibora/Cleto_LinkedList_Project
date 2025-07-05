@@ -9,38 +9,9 @@ struct Node {
 
 int main() {
     //In every linked list must have a start
-    Node n1, n2, n3, n4, *start;
-    Node *ptr, *ptr2;
+    Node n1, n2, n3, n4, *start, *ptr;
 
 
-    n1.value = 111;
-    n2.value = 222;
-    n3.value = 333;
-    n4.value = 444;
-
-    start = &n1;
-    n1.next = &n2;
-    n2.next = &n3;
-    n3.next = &n4;
-    n4.next = NULL;
-
-    ptr = start;
-    ptr2 = start;
-    cout << "====================================================================" << endl;
-    cout << "Manually traversing" << endl;
-    cout << "The value of the node is " << ptr -> value << endl;
-    cout << "The value of the next node is " << ptr -> next -> value << endl;
-    cout << "The next node is " << ptr -> next -> next -> value << endl;
-    cout << "====================================================================" << endl;
-    cout << "Manually traversing v2" << endl;
-    //the (*ptr) is not needed here
-    cout << "Starting node n1: " << ptr -> value << endl;
-    ptr = ptr -> next;
-    cout << "Second Node n2: " << ptr -> value << endl;
-    ptr = ptr -> next;
-    cout << "Third Node n3: " << ptr -> value << endl;
-    ptr = ptr -> next;
-    cout << "Fourth Node n4: " << ptr -> value << endl;
 
 }
 
