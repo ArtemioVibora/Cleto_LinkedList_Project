@@ -16,6 +16,36 @@ bool isListEmpty(Node *start) {
     return false;
 }
 
+int countNodes(Node *p) {
+    int ctr = 0;
+
+    while (p != NULL) {
+        ++ctr;
+        p = p->next;
+    }
+    return ctr;
+}
+
+void locateNode(Node *p, int searchValue) {
+    int ctr;
+    if (isListEmpty(p)) {
+        cout << "List is empty" << endl;
+    }
+    else {
+        ctr = 1;
+        while (p != NULL && p->value != searchValue) {
+            p = p->next;
+            ++ctr;
+        }
+        if (ctr != NULL) {
+            cout << "Node requested is Node " << ctr << "." << endl;
+        }
+        else {
+            cout << "Node requested does not exist " << endl;
+        }
+    }
+}
+
 void printItems(Node *p) {
     int ctr;
 
