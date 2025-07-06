@@ -32,8 +32,35 @@ void printItems(Node *p) {
     }
 }
 
-void deleteNode(Node *p) {
+void deleteNode(Node **p_start, int delete_value) {
+    Node *discard, *before;
 
+    discard = *p_start;
+
+    if (isListEmpty(*p_start)) {
+        cout << "List is empty" << endl;
+    }
+    else {
+        if ((*p_start)->value == delete_value) {
+            *p_start = (*p_start)->next;
+            free(discard);
+            cout << "The value of node " << delete_value << " is deleted" << endl;
+        }
+        else {
+            while (discard != NULL && discard->value != delete_value) {
+                before = discard;
+                discard = discard->next;
+            }
+            if (discard != NULL) {
+                cout << "The Node does not exist!" << endl;
+            }
+            else {
+                before->next = discard->next;
+                free(discard);
+                cout << "The value of node " << delete_value << " is deleted" << endl;
+            }
+        }
+    }
 }
 
 //At the rear
