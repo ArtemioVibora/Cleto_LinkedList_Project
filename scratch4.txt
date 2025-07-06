@@ -1,0 +1,9 @@
+Node *start, *ptr1, *ptr2;
+
+    ptr1 = (Node*)malloc(sizeof(Node));
+    cout << "The address of the memory allocated is "  << ptr1 << endl;
+    cout << "Enter the value of node: ";
+    cin >> ptr1->value;
+    ptr1->next = NULL;
+    cout << "The value of node is " << ptr1 -> value << endl;
+    cout <<  "The next of node 1 is " << ptr1 -> next << endl;
