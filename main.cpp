@@ -37,7 +37,7 @@ void locateNode(Node *p, int searchValue) {
             p = p->next;
             ++ctr;
         }
-        if (ctr != NULL) {
+        if (p != NULL) {
             cout << "Node requested is Node " << ctr << "." << endl;
         }
         else {
@@ -81,7 +81,7 @@ void deleteNode(Node **p_start, int delete_value) {
                 before = discard;
                 discard = discard->next;
             }
-            if (discard != NULL) {
+            if (discard == NULL) {
                 cout << "The Node does not exist!" << endl;
             }
             else {
@@ -144,6 +144,48 @@ void insertNodeWithin(Node **p_start, int data, int pos) {
 int main() {
 
     Node *start;
-    //list should be in the main function
+    start = NULL; //Should be declared for it will list it among the nodes
 
+    int data, position, choice, count;
+
+    while (choice != 9) {
+
+        cout << "<1>add \n<2>delete \n<3>locate \n<4>print all \n<5> add from within\n<9>exit \n==============\n";
+        count = countNodes(start);
+        cout << "number of nodes: " << count << endl;
+        cout << "What is your choice: ";
+        cin >> choice;
+        switch (choice) {
+            case 1:
+                cout << "What would you like to insert: ";
+                cin >> data;
+                insertNodeRear(&start, data);
+                break;
+            case 2:
+                cout << "What would you like to delete: ";
+                cin >> data;
+                deleteNode(&start, data);
+                break;
+            case 3:
+                cout << "What would you like to locate: ";
+                cin >> data;
+                locateNode(start, data);
+                break;
+            case 4:
+                printItems(start);
+                break;
+            case 5:
+                cout << "What would you like to insert: ";
+                cin >> data;
+                cout << "What position: ";
+                cin >> position;
+                insertNodeWithin(&start, data, position);
+                break;
+            case 9:
+                cout << "Good-bye!" << endl;
+                break;
+            default:
+                break;
+        }
+    }//list should be in the main function
 }
