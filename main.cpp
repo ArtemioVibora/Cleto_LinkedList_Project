@@ -128,7 +128,7 @@ void insertNodeWithin(Node **p_start, int data, int pos) {
         here = (*p_start)->next;
         ctr = 1;
         //Divider
-        while (ctr < pos - 2) {
+        while (ctr <= pos - 2) {
             before = before->next;
             here = here->next;
             ++ctr;
@@ -149,10 +149,11 @@ int main() {
     int data, position, choice, count;
 
     while (choice != 9) {
-
-        cout << "<1>add \n<2>delete \n<3>locate \n<4>print all \n<5> add from within\n<9>exit \n==============\n";
+        cout << "=======================" << endl;
+        cout << "<1>Add \n<2>Delete \n<3>Locate \n<4>Print all \n<5>Add from within\n<9>Exit \n======================\n";
         count = countNodes(start);
         cout << "number of nodes: " << count << endl;
+        cout << endl;
         cout << "What is your choice: ";
         cin >> choice;
         switch (choice) {
